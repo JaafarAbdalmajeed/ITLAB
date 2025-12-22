@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Maison de Pierre - Product Detail Page Layout
+ * Organized and clean product view layout
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <attribute name="class" value="page-product-view"/>
+        
+        <!-- Add breadcrumbs at the top -->
+        <referenceContainer name="content">
+            <block class="Magento\Theme\Block\Html\Breadcrumbs" name="product.breadcrumbs" template="Magento_Theme::html/breadcrumbs.phtml" before="-">
+                <arguments>
+                    <argument name="cssClass" xsi:type="string">breadcrumbs</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        
+        <!-- Add stock and SKU block after price -->
+        <referenceContainer name="product.info.main">
+            <block class="Magento\Catalog\Block\Product\View" name="product.info.stock.sku" template="Magento_Catalog::product/view/stock_sku.phtml" after="product.info.price"/>
+        </referenceContainer>
+        
+    </body>
+</page>
