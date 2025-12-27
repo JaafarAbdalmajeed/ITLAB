@@ -463,16 +463,21 @@ header.scrolled .burger-menu span {
     border-top: 1px solid var(--light-gray);
     border-bottom: 1px solid var(--light-gray);
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
     z-index: 999;
     padding: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
 }
 
-.submenu-dropdown:hover .fullscreen-submenu {
-    opacity: 1;
-    visibility: visible;
+.submenu-dropdown:hover .fullscreen-submenu,
+.submenu-dropdown .fullscreen-submenu:hover {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto;
+    transform: translateY(0);
 }
 
 header.scrolled .fullscreen-submenu {
